@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from '../style';
-import {discount, Tools} from '../assets';
+import {discount, Tools, Wall} from '../assets';
 import {GetStarted} from './GetStarted';
 import {FaCalendar} from 'react-icons/fa';
 
 export const Hero = () => {
 	return (
-		<section id='inicio' className={'flex md:flex-row flex-col py-16'}>
+		<section id='inicio' className={'flex md:flex-row flex-col py-28'}>
 			<div
 				className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
 			>
@@ -43,7 +43,7 @@ export const Hero = () => {
 				className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
 			>
 				<img
-					src={Tools}
+					src={Wall}
 					alt='billing'
 					className='w-[100%] h-[100%] relative z-[5] object-contain'
 					style={{maskImage: ' linear-gradient(black 80%, transparent)'}}

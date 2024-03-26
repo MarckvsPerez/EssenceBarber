@@ -4,7 +4,7 @@ import {CardDeal} from './CardDeal';
 import {Business} from './Business';
 import {Client} from './Client';
 import {CtaComponent} from './CTA';
-import {Stats} from './Stats';
+import {Rates} from './Rates';
 import {Footer} from './Footer';
 import {Testimonials} from './Testimonials';
 import {Hero} from './Hero';
@@ -16,7 +16,7 @@ export {
 	Business,
 	Client,
 	CtaComponent,
-	Stats,
+	Rates,
 	Footer,
 	Testimonials,
 	Hero,

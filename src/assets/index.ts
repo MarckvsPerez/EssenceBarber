@@ -25,6 +25,7 @@ import people02 from './people02.png';
 import people03 from './people03.png';
 import LogoEssence from './LogoEssence.jpg';
 import Tools from './Tools.jpg';
+import Wall from './Wall.jpeg';
 
 export {
 	airbnb,
@@ -38,6 +39,7 @@ export {
 	robot,
 	LogoEssence,
 	Tools,
+	Wall,
 	send,
 	shield,
 	star,

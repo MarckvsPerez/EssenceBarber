@@ -21,6 +21,10 @@ export const navLinks = [
 		title: 'Inicio',
 	},
 	{
+		id: 'rates',
+		title: 'Precios',
+	},
+	{
 		id: 'ubicacion',
 		title: 'Ubicación',
 	},
@@ -31,6 +35,67 @@ export const navLinks = [
 	{
 		id: 'colaboradores',
 		title: 'Colaboradores',
+	},
+];
+
+export const services = [
+	{
+		categoria: 'Barba',
+		contenido: [
+			{
+				nombre: 'ARREGLAR BARBA - RITUAL TOALLA',
+				descripcion:
+					'Definición de la barba con navaja y afeitado de barba con máquina y/o tijeras.',
+				precio: '14€',
+			},
+			{
+				nombre: 'ARREGLAR BARBA',
+				descripcion: 'Arreglar barba con perfilado de contornos en navaja.',
+				precio: '12€',
+			},
+			{
+				nombre: 'AFEITAR',
+				descripcion:
+					'Afeitado a navaja. Preparación con espuma y toalla caliente terminada con toalla fría y after-shave.',
+				precio: '15€',
+			},
+		],
+	},
+	{
+		categoria: 'Facial',
+		contenido: [
+			{
+				nombre: 'NARIZ',
+				descripcion: 'Afeitado de vello en la nariz.',
+				precio: '2€',
+			},
+			{
+				nombre: 'CEJAS',
+				descripcion: 'Contorneado de cejas.',
+				precio: '3€',
+			},
+			{
+				nombre: 'OREJAS',
+				descripcion: 'Rasurado en la zona de las orejas.',
+				precio: '2€',
+			},
+		],
+	},
+	{
+		categoria: 'Cabello',
+		contenido: [
+			{
+				nombre: 'LAVAR + PEINAR',
+				descripcion: 'Lavado + peinado cuanto más te guste.',
+				precio: '10€',
+			},
+			{
+				nombre: 'LAVAR + CORTAR',
+				descripcion:
+					'Lavado + Corte a máquina y/o tijeras con acabado en navaja.',
+				precio: '16€',
+			},
+		],
 	},
 ];
 
@@ -82,24 +147,6 @@ export const feedback = [
 		name: 'Kenn Gallagher',
 		title: 'Founder & Leader',
 		img: people03,
-	},
-];
-
-export const stats = [
-	{
-		id: 'stats-1',
-		title: 'User Active',
-		value: '3800+',
-	},
-	{
-		id: 'stats-2',
-		title: 'Trusted by Company',
-		value: '230+',
-	},
-	{
-		id: 'stats-3',
-		title: 'Transaction',
-		value: '$230M+',
 	},
 ];
 
