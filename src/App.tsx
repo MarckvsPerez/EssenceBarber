@@ -11,6 +11,7 @@ import {
 	Hero,
 	Rates,
 	Testimonials,
+	Schedule,
 } from './components';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -35,6 +36,17 @@ export const App = () => {
 				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Rates />
+					</div>
+				</div>
+
+				<div className={`bg-primary mt-10 ${styles.flexStart}`}>
+					<div className={`${styles.boxWidth}`}>
+						<Schedule />
+					</div>
+				</div>
+
+				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
+					<div className={`${styles.boxWidth}`}>
 						<Business />
 						<Billing />
 						<CardDeal />

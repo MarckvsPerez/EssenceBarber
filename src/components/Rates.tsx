@@ -18,7 +18,7 @@ export const Rates = () => {
 		<section
 			id='rates'
 			ref={ref}
-			className={'font-montserrat flex-row flex-wrap  py-28 justify-start'}
+			className={'font-montserrat flex-row flex-wrap  pt-28 justify-start'}
 		>
 			<h1
 				className='text-white text-4xl font-bold'
@@ -39,10 +39,10 @@ export const Rates = () => {
 							key={ind2}
 						>
 							<div className='flex text-white w-full pt-4'>
-								<div className='whitespace-nowrap text-regular pr-4'>
+								<div className='whitespace-nowrap max-w-[80%] overflow-hidden overflow-ellipsis text-regular pr-4'>
 									{contenido.nombre}
 								</div>
-								<div className='w-full border-b border-white'></div>
+								<div className='flex-1 border-b border-white'></div>
 								<div className='text-xl pl-4'>{contenido.precio}</div>
 							</div>
 							<div className='text-gray-400 pt-1'>{contenido.descripcion}</div>
