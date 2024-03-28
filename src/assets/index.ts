@@ -27,8 +27,10 @@ import LogoEssence from './LogoEssence.jpg';
 import Tools from './Tools.jpg';
 import Wall from './Wall.jpeg';
 import Gamba from './gamba.png';
+import sprayTransparent from './sprayTransparent.png';
 
 export {
+	sprayTransparent,
 	Gamba,
 	airbnb,
 	bill,

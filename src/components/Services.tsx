@@ -3,7 +3,7 @@ import {services} from '../constants';
 import {motion} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 
-export const Rates = () => {
+export const Services = () => {
 	const {ref, inView} = useInView({
 		threshold: 0.1,
 		triggerOnce: true,
@@ -16,7 +16,7 @@ export const Rates = () => {
 	}, [inView]);
 	return (
 		<section
-			id='rates'
+			id='services'
 			ref={ref}
 			className={'font-montserrat flex-row flex-wrap  pt-28 justify-start'}
 		>

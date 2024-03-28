@@ -4,12 +4,13 @@ import {CardDeal} from './CardDeal';
 import {Business} from './Business';
 import {Client} from './Client';
 import {CtaComponent} from './CTA';
-import {Rates} from './Rates';
+import {Services} from './Services';
 import {Footer} from './Footer';
 import {Testimonials} from './Testimonials';
 import {Hero} from './Hero';
 import {Schedule} from './Schedule';
 import {MapComponent} from './MapComponent';
+import {Location} from './Location';
 
 export {
 	Navbar,
@@ -18,10 +19,11 @@ export {
 	Business,
 	Client,
 	CtaComponent,
-	Rates,
+	Services,
 	Footer,
 	Testimonials,
 	Schedule,
 	Hero,
 	MapComponent,
+	Location,
 };

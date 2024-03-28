@@ -6,7 +6,7 @@ import {FaCalendar} from 'react-icons/fa';
 
 export const Hero = () => {
 	return (
-		<section id='inicio' className={'flex md:flex-row flex-col py-28'}>
+		<section id='home' className={'flex md:flex-row flex-col py-28'}>
 			<div
 				className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
 			>

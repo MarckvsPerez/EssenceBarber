@@ -9,10 +9,10 @@ import {
 	CtaComponent,
 	Footer,
 	Hero,
-	Rates,
 	Testimonials,
 	Schedule,
-	MapComponent,
+	Location,
+	Services,
 } from './components';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -36,19 +36,19 @@ export const App = () => {
 
 				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
-						<Rates />
+						<Services />
 					</div>
 				</div>
 
 				<div className={`bg-primary mt-10 ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Schedule />
+						<Location />
 					</div>
 				</div>
 
 				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
-						<MapComponent />
 						<Business />
 						<Billing />
 						<CardDeal />
