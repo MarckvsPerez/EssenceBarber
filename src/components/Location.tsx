@@ -23,7 +23,7 @@ export const Location = () => {
 	};
 
 	return (
-		<section ref={ref} id='location' className='py-28  text-white'>
+		<section id='location' className='py-28  text-white'>
 			<h1
 				className='text-white text-4xl flex-1 sm:px-16 px-6 font-bold mb-6'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
@@ -34,11 +34,11 @@ export const Location = () => {
 				<div className='flex'>
 					<img className='h-[50vh]' src={sprayTransparent} alt='' />
 				</div>
-				<div className='col-span-3 sm:pr-16 px-6'>
+				<div ref={ref} className='col-span-3 sm:pr-16 px-6'>
 					<div className='text-center mb-6'>
 						<motion.div
-							initial={{y: -500, scale: 1}}
-							animate={inView ? {y: 0, scale: 1.2} : {}}
+							initial={{y: -500, scale: 1, opacity: 0}}
+							animate={inView ? {y: 0, scale: 1.2, opacity: 1} : {}}
 							transition={{
 								duration: 0.5,
 							}}
