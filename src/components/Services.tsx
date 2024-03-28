@@ -21,7 +21,7 @@ export const Services = () => {
 			className={'font-montserrat flex-row flex-wrap  pt-28 justify-start'}
 		>
 			<h1
-				className='text-white text-4xl font-bold'
+				className='text-white text-6xl font-bold'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
 			>
 				Serivicios

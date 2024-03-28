@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, {useState} from 'react';
 import {
 	APIProvider,
@@ -42,10 +40,7 @@ export function MapComponent() {
 								setOpen((prev) => !prev);
 							}}
 						>
-							<h1
-								className='text-xl text-gray-800 font-bold font-montserrat'
-								style={{textShadow: 'rgba(123,123,123,0.65) 0px 0px 13px'}}
-							>
+							<h1 className='text-xl text-gray-800 font-bold font-montserrat'>
 								Essence Barber
 							</h1>
 							<a

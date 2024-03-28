@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"jsx": "react",
-		"target": "es2016",
+		"target": "ES2022",
 		"module": "commonjs" /* Conditions to set in addition to the resolver-specific defaults when resolving imports. */,
 		"resolveJsonModule": true /* Enable importing .json files. */,
 		"outDir": "./build" /* Specify an output folder for all emitted files. */,

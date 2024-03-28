@@ -45,7 +45,7 @@ export const Hero = () => {
 				<img
 					src={Wall}
 					alt='billing'
-					className='w-[100%] h-[100%] relative z-[5] object-contain'
+					className='w-[100%] h-[100%] max-h-[900px] relative z-[5] object-contain'
 					style={{maskImage: ' linear-gradient(black 80%, transparent)'}}
 				/>
 

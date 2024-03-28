@@ -12,6 +12,8 @@ export const Location = () => {
 		triggerOnce: true,
 	});
 
+	const image: string = sprayTransparent as string;
+
 	useEffect(() => {
 		if (inView) {
 			console.log('Hola');
@@ -25,16 +27,19 @@ export const Location = () => {
 	return (
 		<section id='location' className='py-28  text-white'>
 			<h1
-				className='text-white text-4xl flex-1 sm:px-16 px-6 font-bold mb-6'
+				className='text-white text-6xl flex-1 sm:px-16 px-6 font-bold mb-6'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
 			>
 				Ubicación
 			</h1>
-			<div className=' grid  sm:grid-cols-4'>
-				<div className='flex'>
-					<img className='h-[50vh]' src={sprayTransparent} alt='' />
+			<div className='grid  relative sm:grid-cols-4'>
+				<div className='flex '>
+					{sprayTransparent !== null && (
+						<img className='h-[400px] object-contain' src={image} alt='' />
+					)}
+					<div className='absolute z-[0] w-[60%] h-[60%] -right-[30%] rounded-full blue__gradient' />
 				</div>
-				<div ref={ref} className='col-span-3 sm:pr-16 px-6'>
+				<div ref={ref} className='sm:col-span-3 sm:pr-16 px-6'>
 					<div className='text-center mb-6'>
 						<motion.div
 							initial={{y: -500, scale: 1, opacity: 0}}
