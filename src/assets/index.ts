@@ -26,8 +26,10 @@ import people03 from './people03.png';
 import LogoEssence from './LogoEssence.jpg';
 import Tools from './Tools.jpg';
 import Wall from './Wall.jpeg';
+import Gamba from './gamba.png';
 
 export {
+	Gamba,
 	airbnb,
 	bill,
 	binance,

@@ -12,6 +12,7 @@ import {
 	Rates,
 	Testimonials,
 	Schedule,
+	MapComponent,
 } from './components';
 import {BrowserRouter} from 'react-router-dom';
 
@@ -47,6 +48,7 @@ export const App = () => {
 
 				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
+						<MapComponent />
 						<Business />
 						<Billing />
 						<CardDeal />

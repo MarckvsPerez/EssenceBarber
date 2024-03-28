@@ -257,3 +257,5 @@ export const clients = [
 		logo: dropbox,
 	},
 ];
+
+export const apiKey = 'AIzaSyCdjDulh7UewQupBjH6PA5PCntHLf9jCD8';
