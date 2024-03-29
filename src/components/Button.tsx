@@ -18,12 +18,7 @@ type CustomButtonProps = {
 	styles?: string;
 };
 
-export const CustomButton = ({
-	children,
-	handleClick,
-	type,
-	styles,
-}: CustomButtonProps) => {
+export const CustomButton = ({children, handleClick, type, styles}: CustomButtonProps) => {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const hoverStyle = {
 		boxShadow: '0px 0px 10px #6d6d6d',

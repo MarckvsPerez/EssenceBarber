@@ -32,7 +32,7 @@ export const navLinks = [
 	},
 ];
 
-export const services = [
+export const servicios = [
 	{
 		categoria: 'Barba',
 		contenido: [

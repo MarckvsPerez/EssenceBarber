@@ -1,32 +1,62 @@
-import React, {useEffect} from 'react';
-import {services} from '../constants';
+import React, {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
+import {type CategoriaType} from '../types';
+import {addDoc, collection, getDocs} from '@firebase/firestore';
+import {db} from '../firebase';
+import BasicModal from './Modal';
+import {ServicesForm} from './ServicesForm';
 
 export const Services = () => {
+	const [servicios, setServicios] = useState<CategoriaType[] | undefined>(undefined);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const {ref, inView} = useInView({
 		threshold: 0.1,
 		triggerOnce: true,
 	});
 
+	const handleKeyDown = (event: {key: string}) => {
+		if (event.key === 'º') {
+			setIsModalOpen(true);
+		}
+	};
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response: CategoriaType[] = [];
+			try {
+				const querySnapshot = await getDocs(collection(db, 'TipoDeServicio'));
+				querySnapshot.forEach((doc) => {
+					response.push(doc.data() as CategoriaType);
+				});
+			} catch (error) {
+				console.error('Error fetching documents: ', error);
+			} finally {
+				setServicios(response);
+			}
+		};
+
+		void fetchData();
+	}, []);
+
 	return (
 		<section
 			id='services'
 			ref={ref}
+			onKeyDown={handleKeyDown}
+			tabIndex={0}
 			className={'font-montserrat flex-row flex-wrap  pt-28 justify-start'}
 		>
-			<h1
-				className='text-white text-6xl font-bold'
-				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
-			>
+			<h1 className='text-white text-6xl font-bold' style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}>
 				Serivicios
 			</h1>
-			{services.map((categoria, ind) => (
+			{servicios?.map((item, ind) => (
 				<div key={ind} className='my-4 p-4 flex-col rounded-[20px] '>
-					<h2 className='text-white text-2xl font-bold'>
-						{categoria.categoria}
-					</h2>
-					{categoria.contenido.map((contenido, ind2) => (
+					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
+						<ServicesForm ServiceInitialValues={servicios} setValues={setServicios} />
+					</BasicModal>
+					{item.contenido.length > 0 && <h2 className='text-white text-2xl font-bold'>{item.categoria}</h2>}
+					{item.contenido.map((contenido, ind2) => (
 						<motion.div
 							initial={{x: -100, opacity: 0}}
 							animate={inView ? {x: 0, opacity: 1} : {}}
@@ -45,6 +75,7 @@ export const Services = () => {
 					))}
 				</div>
 			))}
+			<h2>Cargando</h2>;
 		</section>
 	);
 };
