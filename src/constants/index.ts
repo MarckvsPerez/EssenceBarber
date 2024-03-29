@@ -1,13 +1,4 @@
-import {
-	American,
-	Macho,
-	STMNT,
-	Slick,
-	facebook,
-	instagram,
-	linkedin,
-	twitter,
-} from '../assets';
+import {American, Macho, STMNT, Slick, facebook, instagram, linkedin, twitter} from '../assets';
 
 export const navLinks = [
 	{
@@ -38,8 +29,7 @@ export const servicios = [
 		contenido: [
 			{
 				nombre: 'ARREGLAR BARBA - RITUAL TOALLA',
-				descripcion:
-					'Definición de la barba con navaja y afeitado de barba con máquina y/o tijeras.',
+				descripcion: 'Definición de la barba con navaja y afeitado de barba con máquina y/o tijeras.',
 				precio: '14€',
 			},
 			{
@@ -85,8 +75,7 @@ export const servicios = [
 			},
 			{
 				nombre: 'LAVAR + CORTAR',
-				descripcion:
-					'Lavado + Corte a máquina y/o tijeras con acabado en navaja.',
+				descripcion: 'Lavado + Corte a máquina y/o tijeras con acabado en navaja.',
 				precio: '16€',
 			},
 		],

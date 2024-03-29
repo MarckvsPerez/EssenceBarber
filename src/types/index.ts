@@ -6,6 +6,7 @@ export type TitulosType = {
 };
 
 export type ServicioType = {
+	[key: string]: any | undefined;
 	nombre: string;
 	descripcion: string;
 	precio: string;

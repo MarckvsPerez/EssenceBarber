@@ -4,10 +4,7 @@ import {CustomButton} from './Button';
 
 export const CtaComponent = () => {
 	const redirect = () => {
-		window.open(
-			'https://booksy.com/es-es/18076_barber-essence_barberia_28176_granada',
-			'_blank',
-		);
+		window.open('https://booksy.com/es-es/18076_barber-essence_barberia_28176_granada', '_blank');
 	};
 
 	return (
@@ -24,8 +21,7 @@ export const CtaComponent = () => {
 				<div className='flex-1 flex flex-col'>
 					<h2 className={styles.heading2}>¡Asegura tu Estilo!</h2>
 					<p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-						No te pierdas la oportunidad de experimentar nuestros servicios de
-						primera y obtener el aspecto que deseas
+						No te pierdas la oportunidad de experimentar nuestros servicios de primera y obtener el aspecto que deseas
 					</p>
 				</div>
 

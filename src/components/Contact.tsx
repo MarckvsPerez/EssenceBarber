@@ -57,14 +57,10 @@ export const Contact = () => {
 							placeholder={'Nombre'}
 							className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
 						/>
-						{formik.touched.name && formik.errors.name && (
-							<div className='text-red-500'>{formik.errors.name}</div>
-						)}
+						{formik.touched.name && formik.errors.name && <div className='text-red-500'>{formik.errors.name}</div>}
 					</label>
 					<label className='flex flex-col mb-4'>
-						<span className='text-white font-medium mb-4'>
-							Correo electrónico
-						</span>
+						<span className='text-white font-medium mb-4'>Correo electrónico</span>
 						<input
 							type='email'
 							name='email'
@@ -74,9 +70,7 @@ export const Contact = () => {
 							placeholder={'Correo'}
 							className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
 						/>
-						{formik.touched.email && formik.errors.email && (
-							<div className='text-red-500'>{formik.errors.email}</div>
-						)}
+						{formik.touched.email && formik.errors.email && <div className='text-red-500'>{formik.errors.email}</div>}
 					</label>
 					<label className='flex flex-col mb-10'>
 						<span className='text-white font-medium mb-4'>Mensaje</span>
@@ -94,14 +88,8 @@ export const Contact = () => {
 						)}
 					</label>
 
-					<CustomButton
-						styles='w-full'
-						type='submit'
-						handleClick={formik.handleSubmit}
-					>
-						<div className='text-white'>
-							{formik.isSubmitting ? '...' : msg}
-						</div>
+					<CustomButton styles='w-full' type='submit' handleClick={formik.handleSubmit}>
+						<div className='text-white'>{formik.isSubmitting ? '...' : msg}</div>
 					</CustomButton>
 				</Form>
 			</div>

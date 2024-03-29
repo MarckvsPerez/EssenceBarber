@@ -1,24 +1,13 @@
 import React from 'react';
 import styles from './style';
-import {
-	Navbar,
-	Client,
-	CtaComponent,
-	Footer,
-	Hero,
-	Schedule,
-	Location,
-	Services,
-} from './components';
+import {Navbar, Client, CtaComponent, Footer, Hero, Schedule, Location, Services} from './components';
 import {BrowserRouter} from 'react-router-dom';
 
 export const App = () => {
 	return (
 		<BrowserRouter>
 			<div className='bg-primary w-full  overflow-hidden'>
-				<div
-					className={`shadow-lg fixed w-full bg-primary z-10 ${styles.paddingX} ${styles.flexCenter}`}
-				>
+				<div className={`shadow-lg fixed w-full bg-primary z-10 ${styles.paddingX} ${styles.flexCenter}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Navbar />
 					</div>

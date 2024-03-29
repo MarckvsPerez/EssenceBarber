@@ -28,9 +28,7 @@ export const Location = () => {
 			</h1>
 			<div className='grid  relative sm:grid-cols-4'>
 				<div className='flex '>
-					{sprayTransparent !== null && (
-						<img className='h-[400px] object-contain' src={image} alt='' />
-					)}
+					{sprayTransparent !== null && <img className='h-[400px] object-contain' src={image} alt='' />}
 					<div className='absolute z-[0] w-[60%] h-[60%] -right-[30%] rounded-full blue__gradient' />
 				</div>
 				<div ref={ref} className='sm:col-span-3 sm:pr-16 px-6'>
@@ -44,10 +42,7 @@ export const Location = () => {
 						>
 							<FaMapMarkerAlt className='w-full text-white text-center text-[32px] mb-4' />
 						</motion.div>
-						<p className='mb-8'>
-							Carrer de l&apos;Abat Armengol, 22, 08173 Sant Cugat del Vallès,
-							Barcelona
-						</p>
+						<p className='mb-8'>Carrer de l&apos;Abat Armengol, 22, 08173 Sant Cugat del Vallès, Barcelona</p>
 						<CustomButton handleClick={redirect}>
 							<div className='flex'>
 								<FaExternalLinkAlt className='mr-4' />

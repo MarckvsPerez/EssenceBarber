@@ -36,15 +36,8 @@ export const Hero = () => {
 
 	if (titles !== undefined) {
 		return (
-			<section
-				id='home'
-				onKeyDown={handleKeyDown}
-				tabIndex={0}
-				className={'flex md:flex-row flex-col py-28'}
-			>
-				<div
-					className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
-				>
+			<section id='home' onKeyDown={handleKeyDown} tabIndex={0} className={'flex md:flex-row flex-col py-28'}>
+				<div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
 					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
 						<HeroForm HeroInitialValues={titles} setValues={setTitles} />
 					</BasicModal>
@@ -69,14 +62,10 @@ export const Hero = () => {
 						</div>
 					</div>
 
-					<p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-						{titles.Texto}
-					</p>
+					<p className={`${styles.paragraph} max-w-[470px] mt-5`}>{titles.Texto}</p>
 				</div>
 
-				<div
-					className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
-				>
+				<div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
 					<img
 						src={Wall}
 						alt='billing'

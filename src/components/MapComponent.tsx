@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-	APIProvider,
-	Map,
-	AdvancedMarker,
-	InfoWindow,
-	useAdvancedMarkerRef,
-} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, AdvancedMarker, InfoWindow, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import {apiKey} from '../constants';
 
 export function MapComponent() {
@@ -40,9 +34,7 @@ export function MapComponent() {
 								setOpen((prev) => !prev);
 							}}
 						>
-							<h1 className='text-xl text-gray-800 font-bold font-montserrat'>
-								Essence Barber
-							</h1>
+							<h1 className='text-xl text-gray-800 font-bold font-montserrat'>Essence Barber</h1>
 							<a
 								href='https://maps.app.goo.gl/Gs5Y3WXDJrS9xeMd6'
 								target='_blank'

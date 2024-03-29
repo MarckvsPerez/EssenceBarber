@@ -21,9 +21,7 @@ export const Schedule = () => {
 					mixBlendMode: 'multiply',
 				}}
 			></div>
-			<div
-				className={`${styles.paddingX} flex flex-col justify-center items-center relative z-2 w-full h-full`}
-			>
+			<div className={`${styles.paddingX} flex flex-col justify-center items-center relative z-2 w-full h-full`}>
 				<FaClock className='w-full text-white text-center text-[48px] my-2' />
 				<div
 					className='text-white text-4xl text-center font-bold'

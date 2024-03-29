@@ -15,11 +15,7 @@ export const Footer = () => {
 			</h1>
 			<div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
 				<div className='flex flex-col w-full justify-start mr-10'>
-					<img
-						src={LogoEssence}
-						alt='LogoEssence'
-						className='w-full object-contain'
-					/>
+					<img src={LogoEssence} alt='LogoEssence' className='w-full object-contain' />
 				</div>
 				<Contact />
 			</div>
@@ -31,9 +27,7 @@ export const Footer = () => {
 							<span className='texto'>{item.id}</span>
 						</h4>
 						<div className='mt-4 text-ellipsis overflow-hidden'>
-							<p className='font-montserrat font-normal text-dimWhite 							'>
-								{item.value}
-							</p>
+							<p className='font-montserrat font-normal text-dimWhite 							'>{item.value}</p>
 						</div>
 					</div>
 				))}

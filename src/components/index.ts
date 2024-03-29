@@ -8,14 +8,4 @@ import {Schedule} from './Schedule';
 import {MapComponent} from './MapComponent';
 import {Location} from './Location';
 
-export {
-	Navbar,
-	Client,
-	CtaComponent,
-	Services,
-	Footer,
-	Schedule,
-	Hero,
-	MapComponent,
-	Location,
-};
+export {Navbar, Client, CtaComponent, Services, Footer, Schedule, Hero, MapComponent, Location};

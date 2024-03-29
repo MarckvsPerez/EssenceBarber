@@ -32,6 +32,7 @@ export const ServicesForm = ({
 }) => {
 	const [editedServices, setEditedServices] = useState(ServiceInitialValues);
 	const [loading, setLoading] = useState<boolean>(false);
+
 	const handleEdit = (categoriaIndex: number, serviceIndex: number, field: string, value: string) => {
 		const updatedServices = [...editedServices];
 		updatedServices[categoriaIndex].contenido[serviceIndex][field] = value;
