@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import React, {useState} from 'react';
 
 import {Form, FormikProvider, useFormik} from 'formik';
@@ -10,18 +11,18 @@ export const Contact = () => {
 	const [msg, setMsg] = useState<string>('Enviar');
 	const onSubmit = async (values: FormData): Promise<void> => {
 		try {
-			// Await emailjs.send(
-			// 	'service_0ogh5v9',
-			// 	'template_xjzmnnp',
-			// 	{
-			// 		from_name: values.name,
-			// 		to_name: 'Essence',
-			// 		from_email: values.email,
-			// 		to_email: 'essencebarbersbcn@gmail.com',
-			// 		message: values.message,
-			// 	},
-			// 	'YmMqkoIl9QvRX_KIj',
-			// );
+			await emailjs.send(
+				'service_0ogh5v9',
+				'template_xjzmnnp',
+				{
+					from_name: values.name,
+					to_name: 'Essence',
+					from_email: values.email,
+					to_email: 'essencebarbersbcn@gmail.com',
+					message: values.message,
+				},
+				'YmMqkoIl9QvRX_KIj',
+			);
 			formik.resetForm();
 			setMsg('¡El formulario se envió con éxito!');
 		} catch (error) {
