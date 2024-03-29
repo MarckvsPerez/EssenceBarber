@@ -6,7 +6,7 @@ import {FaCalendar, FaClock} from 'react-icons/fa';
 export const Schedule = () => {
 	return (
 		<section
-			className='text-white w-full relative h-[400px]'
+			className='text-white w-full font-montserrat relative h-[400px]'
 			style={{
 				backgroundImage: `url(${Tools})`,
 				backgroundSize: 'cover',

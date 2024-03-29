@@ -4,7 +4,7 @@ export const Button = ({styles}: {styles?: string}) => {
 	return (
 		<button
 			type='button'
-			className={`py-4 px-6 font-montserrat font-medium text-[18px] text-primary bg-blue-gradient rounded-[10px] outline-none ${styles}`}
+			className={`py-4 px-6 font-montserrat font-medium text-[18px] text-primary bg-white rounded-[10px] outline-none ${styles}`}
 		>
 			Get Started
 		</button>
@@ -14,9 +14,16 @@ export const Button = ({styles}: {styles?: string}) => {
 type CustomButtonProps = {
 	children: React.ReactNode;
 	handleClick: () => void;
+	type?: 'button' | 'submit' | 'reset' | undefined;
+	styles?: string;
 };
 
-export const CustomButton = ({children, handleClick}: CustomButtonProps) => {
+export const CustomButton = ({
+	children,
+	handleClick,
+	type,
+	styles,
+}: CustomButtonProps) => {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const hoverStyle = {
 		boxShadow: '0px 0px 10px #6d6d6d',
@@ -35,9 +42,12 @@ export const CustomButton = ({children, handleClick}: CustomButtonProps) => {
 		<button
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
-			className='p-4 font-montserrat rounded-[10px] border-2 border-gray-500'
-			style={{...(isHovered ? hoverStyle : {transition: 'all 0.3s ease'})}}
+			className={`p-4 font-montserrat rounded-[10px] border-2 border-gray-500 ${styles}`}
+			style={{
+				...(isHovered ? hoverStyle : {transition: 'all 0.3s ease'}),
+			}}
 			onClick={handleClick}
+			type={type ?? 'button'}
 		>
 			{children}
 		</button>

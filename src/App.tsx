@@ -2,14 +2,10 @@ import React from 'react';
 import styles from './style';
 import {
 	Navbar,
-	Billing,
-	Business,
-	CardDeal,
 	Client,
 	CtaComponent,
 	Footer,
 	Hero,
-	Testimonials,
 	Schedule,
 	Location,
 	Services,
@@ -49,12 +45,8 @@ export const App = () => {
 
 				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
-						<Business />
-						<Billing />
-						<CardDeal />
-						<Testimonials />
-						<Client />
 						<CtaComponent />
+						<Client />
 						<Footer />
 					</div>
 				</div>

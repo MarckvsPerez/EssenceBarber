@@ -12,20 +12,14 @@ export const Location = () => {
 		triggerOnce: true,
 	});
 
-	const image: string = sprayTransparent as string;
+	const image: string = sprayTransparent;
 
-	useEffect(() => {
-		if (inView) {
-			console.log('Hola');
-		}
-	}, [inView]);
-
-	const hola = () => {
+	const redirect = () => {
 		window.open('https://maps.app.goo.gl/Gs5Y3WXDJrS9xeMd6', '_blank');
 	};
 
 	return (
-		<section id='location' className='py-28  text-white'>
+		<section id='location' className='pt-28  text-white font-montserrat'>
 			<h1
 				className='text-white text-6xl flex-1 sm:px-16 px-6 font-bold mb-6'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
@@ -54,7 +48,7 @@ export const Location = () => {
 							Carrer de l&apos;Abat Armengol, 22, 08173 Sant Cugat del Vallès,
 							Barcelona
 						</p>
-						<CustomButton handleClick={hola}>
+						<CustomButton handleClick={redirect}>
 							<div className='flex'>
 								<FaExternalLinkAlt className='mr-4' />
 								Ver en Maps

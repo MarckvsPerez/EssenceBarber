@@ -9,11 +9,6 @@ export const Services = () => {
 		triggerOnce: true,
 	});
 
-	useEffect(() => {
-		if (inView) {
-			console.log('Element is in view');
-		}
-	}, [inView]);
 	return (
 		<section
 			id='services'

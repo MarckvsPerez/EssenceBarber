@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../style';
-import {discount, Tools, Wall} from '../assets';
-import {GetStarted} from './GetStarted';
+import {Wall} from '../assets';
+import {WhatsApp} from './WhatsApp';
 import {FaCalendar} from 'react-icons/fa';
 
 export const Hero = () => {
@@ -27,7 +27,7 @@ export const Hero = () => {
 					</h1>
 
 					<div className='ss:flex hidden md:mx-4 mr-0'>
-						<GetStarted />
+						<WhatsApp />
 					</div>
 				</div>
 
@@ -55,7 +55,7 @@ export const Hero = () => {
 			</div>
 
 			<div className={`ss:hidden ${styles.flexCenter}`}>
-				<GetStarted />
+				<WhatsApp />
 			</div>
 		</section>
 	);
