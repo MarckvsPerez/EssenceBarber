@@ -138,4 +138,3 @@ export const contact = [
 		value: 'Carrer Abat Armengol, 22, 08173 Sant Cugat del Vallès, Barcelona',
 	},
 ];
-export const apiKey = 'AIzaSyCdjDulh7UewQupBjH6PA5PCntHLf9jCD8';

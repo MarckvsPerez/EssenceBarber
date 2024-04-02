@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import {APIProvider, Map, AdvancedMarker, InfoWindow, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
-import {apiKey} from '../constants';
 
 export function MapComponent() {
 	const position = {lat: 41.475444, lng: 2.083139};
 	const [markerRef, marker] = useAdvancedMarkerRef();
 
 	const [open, setOpen] = useState(false);
+	const mapsApiKey: string = import.meta.env.VITE_APP_MAPS_KEY as string;
 
 	return (
-		<APIProvider apiKey={apiKey}>
+		<APIProvider apiKey={mapsApiKey}>
 			<div
 				className='w-full h-[300px] my-4'
 				style={{
