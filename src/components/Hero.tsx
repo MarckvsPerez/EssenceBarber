@@ -8,8 +8,9 @@ import {db} from '../firebase';
 import {type TitulosType} from '../types';
 import BasicModal from './Modal';
 import {HeroForm} from './HeroForm';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const Hero = () => {
+const Hero = (): JSX.Element => {
 	const [titles, setTitles] = useState<TitulosType | undefined>(undefined);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -87,3 +88,9 @@ export const Hero = () => {
 
 	return <h2>Cargando</h2>;
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={Hero} idName='home' />;
+};
+
+export default HeroWrapper;

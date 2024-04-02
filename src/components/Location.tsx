@@ -5,8 +5,9 @@ import {motion} from 'framer-motion';
 import {CustomButton} from './Button';
 import {useInView} from 'react-intersection-observer';
 import {sprayTransparent} from '../assets';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const Location = () => {
+const Location = () => {
 	const {ref, inView} = useInView({
 		threshold: 0.1,
 		triggerOnce: true,
@@ -56,3 +57,9 @@ export const Location = () => {
 		</section>
 	);
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={Location} idName='location' />;
+};
+
+export default HeroWrapper;
