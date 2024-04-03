@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import {type CategoriaType} from '../types';
-import {addDoc, collection, getDocs} from '@firebase/firestore';
+import {collection, getDocs} from '@firebase/firestore';
 import {db} from '../firebase';
 import BasicModal from './Modal';
 import {ServicesForm} from './ServicesForm';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const Services = () => {
+const Services = () => {
 	const [servicios, setServicios] = useState<CategoriaType[] | undefined>(undefined);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const {ref, inView} = useInView({
@@ -40,7 +41,7 @@ export const Services = () => {
 	}, []);
 
 	return (
-		<section
+		<div
 			id='services'
 			ref={ref}
 			onKeyDown={handleKeyDown}
@@ -75,7 +76,12 @@ export const Services = () => {
 					))}
 				</div>
 			))}
-			<h2>Cargando</h2>;
-		</section>
+		</div>
 	);
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={Services} idName='services' />;
+};
+
+export default HeroWrapper;

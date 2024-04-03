@@ -1,7 +1,6 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
-import styles from '../style';
 import {staggerContainer} from '../utils/motion';
 
 type StarWrapperProps = {
@@ -16,7 +15,6 @@ const StarWrapper: React.FC<StarWrapperProps> = ({Component, idName}) => {
 			initial='hidden'
 			whileInView='show'
 			viewport={{once: true, amount: 0.25}}
-			className={`${styles.marginX} max-w-7xl mx-auto relative z-0`}
 		>
 			<span className='hash-span' id={idName}>
 				&nbsp;

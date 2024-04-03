@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from '../style';
 import {CustomButton} from './Button';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const CtaComponent = () => {
+const CtaComponent = () => {
 	const redirect = () => {
 		window.open('https://booksy.com/es-es/18076_barber-essence_barberia_28176_granada', '_blank');
 	};
 
 	return (
-		<section id='book' className='pt-28'>
+		<div id='book' className='pt-28'>
 			<h1
 				className='text-white text-6xl font-montserrat font-bold'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
@@ -31,6 +32,12 @@ export const CtaComponent = () => {
 					</CustomButton>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={CtaComponent} idName='book' />;
+};
+
+export default HeroWrapper;

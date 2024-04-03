@@ -1,27 +1,15 @@
 import React from 'react';
 import {Tools} from '../assets';
 import styles from '../style';
-import {FaCalendar, FaClock} from 'react-icons/fa';
+import {FaClock} from 'react-icons/fa';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const Schedule = () => {
+const Schedule = () => {
 	return (
-		<section
-			className='text-white w-full font-montserrat relative h-[400px]'
-			style={{
-				backgroundImage: `url(${Tools})`,
-				backgroundSize: 'cover',
-				backgroundRepeat: 'no-repeat',
-				backgroundPosition: 'center',
-				backgroundBlendMode: 'multiply',
-			}}
-		>
-			<div
-				className='w-full h-full  absolute bg-black opacity-85'
-				style={{
-					mixBlendMode: 'multiply',
-				}}
-			></div>
-			<div className={`${styles.paddingX} flex flex-col justify-center items-center relative z-2 w-full h-full`}>
+		<div className='text-white w-full font-montserrat relative inline-block h-[400px]'>
+			<img src={Tools} className='h-full w-full object-cover' alt='' />
+			<div className='w-full top-0 h-full absolute bg-black opacity-85'></div>
+			<div className={`${styles.paddingX} absolute top-0 flex flex-col justify-center items-center  z-2 w-full h-full`}>
 				<FaClock className='w-full text-white text-center text-[48px] my-2' />
 				<div
 					className='text-white text-4xl text-center font-bold'
@@ -30,6 +18,12 @@ export const Schedule = () => {
 					De Martes a Sabado de 09h a 20h{' '}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={Schedule} idName='schedule' />;
+};
+
+export default HeroWrapper;

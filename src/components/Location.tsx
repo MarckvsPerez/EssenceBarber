@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {MapComponent} from './MapComponent';
+import React from 'react';
+import MapComponent from './MapComponent';
 import {FaMapMarkerAlt, FaExternalLinkAlt} from 'react-icons/fa';
 import {motion} from 'framer-motion';
 import {CustomButton} from './Button';
@@ -20,7 +20,7 @@ const Location = () => {
 	};
 
 	return (
-		<section id='location' className='pt-28  text-white font-montserrat'>
+		<div className='pt-28  text-white font-montserrat'>
 			<h1
 				className='text-white text-6xl flex-1 sm:px-16 px-6 font-bold mb-6'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
@@ -54,7 +54,7 @@ const Location = () => {
 					<MapComponent />
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
 

@@ -37,7 +37,7 @@ const Hero = (): JSX.Element => {
 
 	if (titles !== undefined) {
 		return (
-			<section id='home' onKeyDown={handleKeyDown} tabIndex={0} className={'flex md:flex-row flex-col py-28'}>
+			<div onKeyDown={handleKeyDown} tabIndex={0} className={'flex md:flex-row flex-col mt-28'}>
 				<div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
 					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
 						<HeroForm HeroInitialValues={titles} setValues={setTitles} />
@@ -82,7 +82,7 @@ const Hero = (): JSX.Element => {
 				<div className={`ss:hidden ${styles.flexCenter}`}>
 					<WhatsApp />
 				</div>
-			</section>
+			</div>
 		);
 	}
 

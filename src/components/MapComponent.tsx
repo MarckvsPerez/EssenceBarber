@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {APIProvider, Map, AdvancedMarker, InfoWindow, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export function MapComponent() {
+function MapComponent() {
 	const position = {lat: 41.475444, lng: 2.083139};
 	const [markerRef, marker] = useAdvancedMarkerRef();
 
@@ -54,3 +55,9 @@ export function MapComponent() {
 		</APIProvider>
 	);
 }
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={MapComponent} idName='map' />;
+};
+
+export default HeroWrapper;

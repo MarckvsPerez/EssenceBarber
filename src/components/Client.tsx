@@ -1,10 +1,11 @@
 import React from 'react';
 import {clients} from '../constants';
 import styles from '../style';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const Client = () => {
+const Client = () => {
 	return (
-		<section className={`${styles.flexCenter} my-4`}>
+		<div className={`${styles.flexCenter} my-4`}>
 			<div className={`${styles.flexCenter} flex-wrap w-full`}>
 				{clients.map((client) => (
 					<div key={client.id} className={`flex-1 ${styles.flexCenter} sm:min-w-[192px] min-w-[120px] m-5`}>
@@ -12,6 +13,12 @@ export const Client = () => {
 					</div>
 				))}
 			</div>
-		</section>
+		</div>
 	);
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={Client} idName='clients' />;
+};
+
+export default HeroWrapper;

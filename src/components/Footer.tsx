@@ -3,10 +3,11 @@ import styles from '../style';
 import {LogoEssence} from '../assets';
 import {contact, socialMedia} from '../constants';
 import {Contact} from './Contact';
+import SectionWrapper from '../hoc/SectionWrapper';
 
-export const Footer = () => {
+const Footer = () => {
 	return (
-		<section id='contact' className={`${styles.paddingY} flex-col pt-28`}>
+		<div className={'flex-col mt-28'}>
 			<h1
 				className='text-white text-6xl font-montserrat font-bold'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
@@ -52,6 +53,12 @@ export const Footer = () => {
 					))}
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
+
+const HeroWrapper = () => {
+	return <SectionWrapper Component={Footer} idName='contact' />;
+};
+
+export default HeroWrapper;

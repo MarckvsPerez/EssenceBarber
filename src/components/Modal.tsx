@@ -39,11 +39,13 @@ const initialValues = {
 	pass: '',
 };
 
+const Password: string = import.meta.env.VITE_APP_PASSWORD as string;
+
 export default function BasicModal({children, open, setOpen}: Props) {
 	const [auth, setauth] = useState<boolean>(false);
 
 	const onSubmit = (values: {pass: string}): void => {
-		if (values.pass === 'ESSENCE2024') {
+		if (values.pass === Password) {
 			setauth(true);
 		} else {
 			formik.resetForm();
