@@ -9,7 +9,7 @@ const theme = createTheme({
 	},
 });
 
-const UploadFile = () => {
+export const UploadScheduleFile = () => {
 	const [file, setFile] = useState<File | undefined>(undefined);
 	const [alert, setAlert] = useState<string | undefined>(undefined);
 	const [uploading, setUploading] = useState(false);
@@ -83,5 +83,3 @@ const UploadFile = () => {
 		</ThemeProvider>
 	);
 };
-
-export default UploadFile;
