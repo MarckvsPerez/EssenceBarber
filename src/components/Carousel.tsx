@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import {Pagination} from 'swiper/modules';
+import {getStorage, ref} from 'firebase/storage';
+import {downloadFilesFromStorage} from '../firebase';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import {Pagination} from 'swiper/modules';
-
 export function Carousel() {
+	const [images, setimages] = useState<string[] | undefined>(undefined);
+	const storage = getStorage();
+	const folderRef = ref(storage, 'Galeria');
+
+	useEffect(() => {
+		const fetchImages = async () => {
+			const downloadUrls = await downloadFilesFromStorage(folderRef);
+			setimages(downloadUrls);
+		};
+
+		void fetchImages();
+	}, []);
+
 	return (
 		<div className='mt-8 h-[450px]'>
 			<Swiper
@@ -16,15 +30,11 @@ export function Carousel() {
 				modules={[Pagination]}
 				className='mySwiper'
 			>
-				<SwiperSlide>Slide 1</SwiperSlide>
-				<SwiperSlide>Slide 2</SwiperSlide>
-				<SwiperSlide>Slide 3</SwiperSlide>
-				<SwiperSlide>Slide 4</SwiperSlide>
-				<SwiperSlide>Slide 5</SwiperSlide>
-				<SwiperSlide>Slide 6</SwiperSlide>
-				<SwiperSlide>Slide 7</SwiperSlide>
-				<SwiperSlide>Slide 8</SwiperSlide>
-				<SwiperSlide>Slide 9</SwiperSlide>
+				{images?.map((item, index) => (
+					<SwiperSlide key={index}>
+						<img src={item} alt='' />
+					</SwiperSlide>
+				))}
 			</Swiper>
 		</div>
 	);
