@@ -1,4 +1,4 @@
-import React, {type ChangeEvent, useState} from 'react';
+import React, {type ChangeEvent, useState, useRef} from 'react';
 import {getStorage, ref, uploadBytes} from 'firebase/storage';
 import {Button, Paper, Alert} from '@mui/material';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
@@ -9,14 +9,16 @@ const theme = createTheme({
 	},
 });
 
-export const UploadScheduleFile = () => {
+export const UploadFile = ({fileDir, update}: {fileDir: string; update?: () => void}) => {
 	const [file, setFile] = useState<File | undefined>(undefined);
 	const [alert, setAlert] = useState<string | undefined>(undefined);
 	const [uploading, setUploading] = useState(false);
 	const [previewUrl, setPreviewUrl] = useState<string | undefined>(undefined);
 
+	const inputFileRef = useRef(null);
+
 	const storage = getStorage();
-	const storageRef = ref(storage, 'FondoHorario');
+	const storageRef = ref(storage, fileDir);
 
 	const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const selectedFile = e.target.files ? e.target.files[0] : null;
@@ -54,13 +56,21 @@ export const UploadScheduleFile = () => {
 			console.error('Error al subir el archivo:', error);
 		} finally {
 			setUploading(false);
+			if (inputFileRef.current) {
+				(inputFileRef.current as HTMLInputElement).value = '';
+				setPreviewUrl(undefined);
+			}
+
+			if (update !== undefined) {
+				update();
+			}
 		}
 	};
 
 	return (
 		<ThemeProvider theme={theme}>
 			<Paper className='mt-4 '>
-				<input type='file' onChange={handleFileChange} className='w-full p-4' />
+				<input ref={inputFileRef} type='file' onChange={handleFileChange} className='w-full p-4' />
 				{previewUrl && (
 					<>
 						<div className='p-4'>

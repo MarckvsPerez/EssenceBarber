@@ -4,7 +4,7 @@ import {CustomButton} from '../Button';
 import {validationSchema} from './ScheduleFormSchema';
 import {doc, updateDoc} from 'firebase/firestore';
 import {db} from '../../firebase';
-import {UploadScheduleFile} from '../UploadFile';
+import {UploadFile} from '../UploadFile';
 
 export const ScheduleForm = ({
 	ScheduleInitialValues,
@@ -64,7 +64,7 @@ export const ScheduleForm = ({
 				</div>
 			</FormikProvider>
 
-			<UploadScheduleFile />
+			<UploadFile fileDir='FondoHorario' />
 		</div>
 	);
 };

@@ -28,7 +28,7 @@ const Schedule = () => {
 		};
 
 		void fetchImage();
-	}, []);
+	}, [schedule]);
 
 	return (
 		<div

@@ -1,6 +1,14 @@
 import {initializeApp} from 'firebase/app';
 import {getFirestore, doc, getDoc, collection, getDocs} from '@firebase/firestore';
-import {getStorage, getDownloadURL, type StorageReference, uploadBytes, ref, listAll} from 'firebase/storage';
+import {
+	getStorage,
+	getDownloadURL,
+	type StorageReference,
+	uploadBytes,
+	ref,
+	listAll,
+	deleteObject,
+} from 'firebase/storage';
 
 import {type TitulosType, type CategoriaType, type BookType} from '../types';
 import {type Dispatch, type SetStateAction} from 'react';
@@ -77,6 +85,16 @@ export const fetchBook = async (set: Dispatch<SetStateAction<BookType | undefine
 
 export const downloadFileFromStorage = async (starsRef: StorageReference): Promise<string> => {
 	return getDownloadURL(starsRef);
+};
+
+export const deleteFileFromStorage = async (starsRef: StorageReference): Promise<void> => {
+	try {
+		await deleteObject(starsRef);
+		console.log('Archivo borrado exitosamente.');
+	} catch (error) {
+		console.error('Error al borrar el archivo:', error);
+		throw error;
+	}
 };
 
 export const downloadFilesFromStorage = async (folderRef: StorageReference): Promise<string[]> => {
