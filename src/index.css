@@ -5,12 +5,7 @@
 @tailwind utilities;
 
 :root {
-	--black-gradient: linear-gradient(
-		144.39deg,
-		#ffffff -278.56%,
-		#6d6d6d -78.47%,
-		#11101d 91.61%
-	);
+	--black-gradient: linear-gradient(144.39deg, #ffffff -278.56%, #6d6d6d -78.47%, #11101d 91.61%);
 	--card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
@@ -47,29 +42,15 @@
 }
 
 .bg-black-gradient {
-	background: linear-gradient(
-		144.39deg,
-		#ffffff -278.56%,
-		#6d6d6d -78.47%,
-		#11101d 91.61%
-	);
+	background: linear-gradient(144.39deg, #ffffff -278.56%, #6d6d6d -78.47%, #11101d 91.61%);
 }
 
 .bg-black-gradient-2 {
-	background: linear-gradient(
-		-168.39deg,
-		#ffffff -278.56%,
-		#6d6d6d -78.47%,
-		#11101d 91.61%
-	);
+	background: linear-gradient(-168.39deg, #ffffff -278.56%, #6d6d6d -78.47%, #11101d 91.61%);
 }
 
 .bg-gray-gradient {
-	background: linear-gradient(
-		153.47deg,
-		rgba(255, 255, 255, 0) -341.94%,
-		#14101d 95.11%
-	);
+	background: linear-gradient(153.47deg, rgba(255, 255, 255, 0) -341.94%, #14101d 95.11%);
 }
 
 .bg-discount-gradient {
@@ -140,10 +121,30 @@
 }
 
 .shadow-lg {
-	--tw-shadow: 0 10px 15px -3px rgb(255 255 255 / 0.1),
-		0 4px 6px -4px rgb(255 255 255 / 0.1);
-	--tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
-		0 4px 6px -4px var(--tw-shadow-color);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-		var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	--tw-shadow: 0 10px 15px -3px rgb(255 255 255 / 0.1), 0 4px 6px -4px rgb(255 255 255 / 0.1);
+	--tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

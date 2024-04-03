@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './style';
 import {Navbar, Client, CtaComponent, Footer, Hero, Schedule, Location, Services} from './components';
 import {BrowserRouter} from 'react-router-dom';
+import {Carousel} from './components/Carousel';
 
 export const App = () => {
 	return (
@@ -29,6 +30,7 @@ export const App = () => {
 					<div className={`${styles.boxWidth}`}>
 						<Schedule />
 						<Location />
+						<Carousel />
 					</div>
 				</div>
 
