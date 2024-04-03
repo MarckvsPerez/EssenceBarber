@@ -2,7 +2,7 @@ import {initializeApp} from 'firebase/app';
 import {getFirestore, doc, getDoc, collection, getDocs} from '@firebase/firestore';
 import {getStorage, getDownloadURL, type StorageReference, uploadBytes, ref} from 'firebase/storage';
 
-import {type TitulosType, type CategoriaType} from '../types';
+import {type TitulosType, type CategoriaType, type BookType} from '../types';
 import {type Dispatch, type SetStateAction} from 'react';
 
 const apiKey: string = import.meta.env.VITE_APP_APIKEY as string;
@@ -58,6 +58,18 @@ export const fetchSchedule = async (set: Dispatch<SetStateAction<{Info: string} 
 
 	if (docSnap.exists()) {
 		set(docSnap.data() as {Info: string});
+	} else {
+		console.log('No such document!');
+	}
+};
+
+export const fetchBook = async (set: Dispatch<SetStateAction<BookType | undefined>>) => {
+	const docRef = doc(db, 'Reservas', 'M3POu8FLx0KZr8m6Qnob');
+	const docSnap = await getDoc(docRef);
+
+	if (docSnap.exists()) {
+		console.log(docSnap.data());
+		set(docSnap.data() as BookType);
 	} else {
 		console.log('No such document!');
 	}

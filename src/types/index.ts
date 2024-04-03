@@ -17,3 +17,9 @@ export type CategoriaType = {
 	id: string;
 	contenido: ServicioType[];
 };
+
+export type BookType = {
+	Titulo: string;
+	Subtitulo: string;
+	Url: string;
+};
