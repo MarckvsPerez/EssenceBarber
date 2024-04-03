@@ -1,4 +1,4 @@
-import {American, Macho, STMNT, Slick, facebook, instagram, linkedin, twitter} from '../assets';
+import {STMNT, BBL, WAHL, JRL, facebook, instagram, linkedin, twitter} from '../assets';
 
 export const navLinks = [
 	{
@@ -20,65 +20,6 @@ export const navLinks = [
 	{
 		id: 'contact',
 		title: 'Contacta',
-	},
-];
-
-export const servicios = [
-	{
-		categoria: 'Barba',
-		contenido: [
-			{
-				nombre: 'ARREGLAR BARBA - RITUAL TOALLA',
-				descripcion: 'Definición de la barba con navaja y afeitado de barba con máquina y/o tijeras.',
-				precio: '14€',
-			},
-			{
-				nombre: 'ARREGLAR BARBA',
-				descripcion: 'Arreglar barba con perfilado de contornos en navaja.',
-				precio: '12€',
-			},
-			{
-				nombre: 'AFEITAR',
-				descripcion:
-					'Afeitado a navaja. Preparación con espuma y toalla caliente terminada con toalla fría y after-shave.',
-				precio: '15€',
-			},
-		],
-	},
-	{
-		categoria: 'Facial',
-		contenido: [
-			{
-				nombre: 'NARIZ',
-				descripcion: 'Afeitado de vello en la nariz.',
-				precio: '2€',
-			},
-			{
-				nombre: 'CEJAS',
-				descripcion: 'Contorneado de cejas.',
-				precio: '3€',
-			},
-			{
-				nombre: 'OREJAS',
-				descripcion: 'Rasurado en la zona de las orejas.',
-				precio: '2€',
-			},
-		],
-	},
-	{
-		categoria: 'Cabello',
-		contenido: [
-			{
-				nombre: 'LAVAR + PEINAR',
-				descripcion: 'Lavado + peinado cuanto más te guste.',
-				precio: '10€',
-			},
-			{
-				nombre: 'LAVAR + CORTAR',
-				descripcion: 'Lavado + Corte a máquina y/o tijeras con acabado en navaja.',
-				precio: '16€',
-			},
-		],
 	},
 ];
 
@@ -108,19 +49,19 @@ export const socialMedia = [
 export const clients = [
 	{
 		id: 'client-1',
-		logo: American,
-	},
-	{
-		id: 'client-2',
-		logo: Slick,
-	},
-	{
-		id: 'client-3',
 		logo: STMNT,
 	},
 	{
+		id: 'client-2',
+		logo: BBL,
+	},
+	{
+		id: 'client-3',
+		logo: WAHL,
+	},
+	{
 		id: 'client-4',
-		logo: Macho,
+		logo: JRL,
 	},
 ];
 
