@@ -7,7 +7,7 @@ import SectionWrapper from '../hoc/SectionWrapper';
 
 const Footer = () => {
 	return (
-		<div className={'flex-col mt-28'}>
+		<div className={'flex-col mt-28 mb-4'}>
 			<h1
 				className='text-white text-6xl font-montserrat font-bold'
 				style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
