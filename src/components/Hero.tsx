@@ -3,12 +3,11 @@ import styles from '../style';
 import {Wall} from '../assets';
 import {WhatsApp} from './WhatsApp';
 import {FaCalendar} from 'react-icons/fa';
-import {doc, getDoc} from '@firebase/firestore';
-import {db} from '../firebase';
 import {type TitulosType} from '../types';
 import BasicModal from './Modal';
-import {HeroForm} from './HeroForm';
+import {HeroForm} from './Forms/HeroForm';
 import SectionWrapper from '../hoc/SectionWrapper';
+import {fetchTitles} from '../firebase';
 
 const Hero = (): JSX.Element => {
 	const [titles, setTitles] = useState<TitulosType | undefined>(undefined);
@@ -21,18 +20,7 @@ const Hero = (): JSX.Element => {
 	};
 
 	useEffect(() => {
-		const fetchData = async () => {
-			const docRef = doc(db, 'Títulos', '23qtzkiI2dakfOPH9UPk');
-			const docSnap = await getDoc(docRef);
-
-			if (docSnap.exists()) {
-				setTitles(docSnap.data() as TitulosType);
-			} else {
-				console.log('No such document!');
-			}
-		};
-
-		void fetchData();
+		void fetchTitles(setTitles);
 	}, []);
 
 	if (titles !== undefined) {

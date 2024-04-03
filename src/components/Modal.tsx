@@ -78,14 +78,14 @@ export default function BasicModal({children, open, setOpen}: Props) {
 							<div className='w-full'>
 								<Form onSubmit={formik.handleSubmit}>
 									<label className='flex flex-col mb-4'>
-										<span className='text-white font-medium mb-4'>Password</span>
+										<span className='text-white font-medium mb-4'>Contraseña</span>
 										<input
 											type='password'
 											name='pass'
 											value={formik.values.pass}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
-											placeholder={'pass'}
+											placeholder={'Contraseña'}
 											className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
 										/>
 										{formik.touched.pass && formik.errors.pass && (

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {Form, FormikProvider, useFormik} from 'formik';
-import {CustomButton} from './Button';
+import {CustomButton} from '../Button';
 import {validationSchema} from './HeroFormSchema';
-import {type TitulosType} from '../types';
+import {type TitulosType} from '../../types';
 import {doc, updateDoc} from 'firebase/firestore';
-import {db} from '../firebase';
+import {db} from '../../firebase';
 
 export const HeroForm = ({
 	HeroInitialValues,

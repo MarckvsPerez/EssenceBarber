@@ -11,11 +11,11 @@ import {
 	Button,
 	CircularProgress,
 } from '@mui/material';
-import {type CategoriaType, type ServicioType} from '../types';
+import {type CategoriaType, type ServicioType} from '../../types';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
-import {CustomButton} from './Button';
+import {CustomButton} from '../Button';
 import {doc, updateDoc} from '@firebase/firestore';
-import {db} from '../firebase';
+import {db} from '../../firebase';
 
 const theme = createTheme({
 	palette: {
@@ -162,7 +162,7 @@ export const ServicesForm = ({
 					</div>
 				) : (
 					<CustomButton styles='w-full ' handleClick={save}>
-						Enviar
+						Guardar
 					</CustomButton>
 				)}
 			</div>

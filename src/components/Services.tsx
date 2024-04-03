@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
 import {type CategoriaType} from '../types';
-import {collection, getDocs} from '@firebase/firestore';
-import {db} from '../firebase';
+import {fetchServices} from '../firebase';
 import BasicModal from './Modal';
-import {ServicesForm} from './ServicesForm';
+import {ServicesForm} from './Forms/ServicesForm';
 import SectionWrapper from '../hoc/SectionWrapper';
 
 const Services = () => {
@@ -23,21 +22,7 @@ const Services = () => {
 	};
 
 	useEffect(() => {
-		const fetchData = async () => {
-			const response: CategoriaType[] = [];
-			try {
-				const querySnapshot = await getDocs(collection(db, 'TipoDeServicio'));
-				querySnapshot.forEach((doc) => {
-					response.push(doc.data() as CategoriaType);
-				});
-			} catch (error) {
-				console.error('Error fetching documents: ', error);
-			} finally {
-				setServicios(response);
-			}
-		};
-
-		void fetchData();
+		void fetchServices(setServicios);
 	}, []);
 
 	return (
