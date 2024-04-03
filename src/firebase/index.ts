@@ -1,14 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getFirestore, doc, getDoc, collection, getDocs} from '@firebase/firestore';
-import {
-	getStorage,
-	getDownloadURL,
-	type StorageReference,
-	uploadBytes,
-	ref,
-	listAll,
-	deleteObject,
-} from 'firebase/storage';
+import {getStorage, getDownloadURL, type StorageReference, listAll, deleteObject} from 'firebase/storage';
 
 import {type TitulosType, type CategoriaType, type BookType} from '../types';
 import {type Dispatch, type SetStateAction} from 'react';
