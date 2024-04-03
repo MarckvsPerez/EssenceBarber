@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {LogoEssence, close, menu} from '../assets';
 import {navLinks} from '../constants';
+import {Button} from '@mui/material';
 
 export const Navbar = () => {
 	const [toggle, setToggle] = useState(false);
@@ -12,10 +13,12 @@ export const Navbar = () => {
 				{navLinks.map((nav, index) => (
 					<li
 						key={nav.id}
-						className={`font-montserrat font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'} text-white '
+						className={`font-montserrat font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-4'} text-white '
 						`}
 					>
-						<a href={`#${nav.id}`}>{nav.title}</a>
+						<Button color='inherit' href={`#${nav.id}`} className='w-full text-white'>
+							{nav.title}
+						</Button>
 					</li>
 				))}
 			</ul>
@@ -36,10 +39,12 @@ export const Navbar = () => {
 						{navLinks.map((nav, index) => (
 							<li
 								key={nav.id}
-								className={`font-montserrat font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mb-0' : 'mb-10'} text-white '
+								className={`font-montserrat font-normal cursor-pointer text-[16px] w-full ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'} text-white '
 						`}
 							>
-								<a href={`#${nav.id}`}>{nav.title}</a>
+								<Button color='inherit' href={`#${nav.id}`} className='w-full text-white'>
+									{nav.title}
+								</Button>
 							</li>
 						))}
 					</ul>
