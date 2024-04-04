@@ -1,47 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Pagination} from 'swiper/modules';
-import {getStorage, ref} from 'firebase/storage';
-import {downloadFilesFromStorage} from '../firebase';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import BasicModal from './Modal';
 import {CarouselForm} from './Forms/CarouselForm';
 import {CircularProgress} from '@mui/material';
+import {useData} from '../context/DataContext';
 
 export function Carousel() {
-	const storage = getStorage();
-
-	const [images, setImages] = useState<string[] | undefined>(undefined);
+	const {gallery} = useData();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	const folderRef = ref(storage, 'Galeria');
-
-	const handleKeyDown = (event: {key: string}) => {
+	const handleKeyDown = (event: React.KeyboardEvent) => {
 		if (event.key === 'º') {
 			setIsModalOpen(true);
 		}
 	};
 
-	useEffect(() => {
-		const fetchImages = async () => {
-			const downloadUrls = await downloadFilesFromStorage(folderRef);
-			setImages(downloadUrls);
-		};
-
-		void fetchImages();
-	}, [images]);
+	const touchOpen = (event: React.TouchEvent) => {
+		if (event.touches.length === 3) {
+			setIsModalOpen(true);
+		}
+	};
 
 	return (
-		<div onKeyDown={handleKeyDown} tabIndex={0} className='mt-8 h-[450px]'>
+		<div onTouchStart={touchOpen} onKeyDown={handleKeyDown} tabIndex={0} className='mt-8 h-[450px]'>
 			<h2>Galeria</h2>
-			{images === undefined ? (
+			{gallery === undefined ? (
 				<CircularProgress />
 			) : (
 				<>
 					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
-						<CarouselForm images={images} set={setImages} />
+						<CarouselForm images={gallery} />
 					</BasicModal>
 					<Swiper
 						pagination={{
@@ -50,7 +41,7 @@ export function Carousel() {
 						modules={[Pagination]}
 						className='mySwiper'
 					>
-						{images?.map((item, index) => (
+						{gallery?.map((item, index) => (
 							<SwiperSlide key={index}>
 								<img src={item} alt='' />
 							</SwiperSlide>

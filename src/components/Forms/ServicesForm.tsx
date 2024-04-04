@@ -16,6 +16,7 @@ import {ThemeProvider, createTheme} from '@mui/material/styles';
 import {CustomButton} from '../Button';
 import {doc, updateDoc} from '@firebase/firestore';
 import {db} from '../../firebase';
+import {useData} from '../../context/DataContext';
 
 const theme = createTheme({
 	palette: {
@@ -23,15 +24,10 @@ const theme = createTheme({
 	},
 });
 
-export const ServicesForm = ({
-	ServiceInitialValues,
-	setValues,
-}: {
-	ServiceInitialValues: CategoriaType[];
-	setValues: React.Dispatch<React.SetStateAction<CategoriaType[] | undefined>>;
-}) => {
+export const ServicesForm = ({ServiceInitialValues}: {ServiceInitialValues: CategoriaType[]}) => {
 	const [editedServices, setEditedServices] = useState(ServiceInitialValues);
 	const [loading, setLoading] = useState<boolean>(false);
+	const {setServices} = useData();
 
 	const handleEdit = (categoriaIndex: number, serviceIndex: number, field: string, value: string) => {
 		const updatedServices = [...editedServices];
@@ -40,7 +36,7 @@ export const ServicesForm = ({
 	};
 
 	const handleSave = () => {
-		setValues(editedServices);
+		setServices(editedServices);
 	};
 
 	const handleDeleteRow = (categoriaIndex: number, serviceIndex: number) => {
@@ -71,13 +67,10 @@ export const ServicesForm = ({
 				const docRef = doc(db, 'TipoDeServicio', categoria.id);
 				await updateDoc(docRef, categoria);
 			});
-			console.log('Documentos actualizados exitosamente.');
 		} catch (error) {
 			console.error('Error actualizando documentos: ', error);
 		} finally {
-			setTimeout(() => {
-				setLoading(false);
-			}, 1000);
+			setLoading(false);
 		}
 	};
 

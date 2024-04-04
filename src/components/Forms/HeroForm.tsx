@@ -5,29 +5,23 @@ import {validationSchema} from './HeroFormSchema';
 import {type TitulosType} from '../../types';
 import {doc, updateDoc} from 'firebase/firestore';
 import {db} from '../../firebase';
+import {useData} from '../../context/DataContext';
 
-export const HeroForm = ({
-	HeroInitialValues,
-	setValues,
-}: {
-	HeroInitialValues: TitulosType;
-	setValues: React.Dispatch<React.SetStateAction<TitulosType | undefined>>;
-}) => {
+export const HeroForm = ({HeroInitialValues}: {HeroInitialValues: TitulosType}) => {
 	const [msg, setMsg] = useState<string>('Enviar');
+	const {setTitles} = useData();
 
 	const onSubmit = async (values: TitulosType): Promise<void> => {
 		try {
 			const docRef = doc(db, 'Títulos', '23qtzkiI2dakfOPH9UPk');
 			await updateDoc(docRef, values);
-			setValues(values);
+			setTitles(values);
 			setMsg('¡El formulario se envió con éxito!');
 		} catch (error) {
 			console.error(error);
 			setMsg('¡Hubo un problema al enviar el formulario!');
 		} finally {
-			setTimeout(() => {
-				setMsg('Enviar');
-			}, 2000);
+			setMsg('Enviar');
 		}
 	};
 

@@ -1,34 +1,40 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from '../style';
 import {Wall} from '../assets';
 import {WhatsApp} from './WhatsApp';
 import {FaCalendar} from 'react-icons/fa';
-import {type TitulosType} from '../types';
 import BasicModal from './Modal';
 import {HeroForm} from './Forms/HeroForm';
 import SectionWrapper from '../hoc/SectionWrapper';
-import {fetchTitles} from '../firebase';
+import {useData} from '../context/DataContext';
 
 const Hero = (): JSX.Element => {
-	const [titles, setTitles] = useState<TitulosType | undefined>(undefined);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const {titles} = useData();
 
-	const handleKeyDown = (event: {key: string}) => {
+	const handleKeyDown = (event: React.KeyboardEvent) => {
 		if (event.key === 'º') {
 			setIsModalOpen(true);
 		}
 	};
 
-	useEffect(() => {
-		void fetchTitles(setTitles);
-	}, []);
+	const touchOpen = (event: React.TouchEvent) => {
+		if (event.touches.length === 3) {
+			setIsModalOpen(true);
+		}
+	};
 
 	if (titles !== undefined) {
 		return (
-			<div onKeyDown={handleKeyDown} tabIndex={0} className={'flex md:flex-row flex-col mt-28'}>
+			<div
+				onKeyDown={handleKeyDown}
+				onTouchStart={touchOpen}
+				tabIndex={0}
+				className={'flex md:flex-row flex-col mt-28'}
+			>
 				<div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
 					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
-						<HeroForm HeroInitialValues={titles} setValues={setTitles} />
+						<HeroForm HeroInitialValues={titles} />
 					</BasicModal>
 					<div className='flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2'>
 						<FaCalendar className='text-white' />

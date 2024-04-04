@@ -50,8 +50,7 @@ export const UploadFile = ({fileDir, update}: {fileDir: string; update?: () => v
 			}
 
 			setUploading(true);
-			const snapshot = await uploadBytes(storageRef, file);
-			console.log('Archivo subido con éxito:', snapshot);
+			await uploadBytes(storageRef, file).then();
 		} catch (error) {
 			console.error('Error al subir el archivo:', error);
 		} finally {

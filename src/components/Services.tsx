@@ -1,45 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {motion} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
-import {type CategoriaType} from '../types';
-import {fetchServices} from '../firebase';
 import BasicModal from './Modal';
 import {ServicesForm} from './Forms/ServicesForm';
 import SectionWrapper from '../hoc/SectionWrapper';
+import {useData} from '../context/DataContext';
 
 const Services = () => {
-	const [servicios, setServicios] = useState<CategoriaType[] | undefined>(undefined);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const {services} = useData();
+
 	const {ref, inView} = useInView({
 		threshold: 0.1,
 		triggerOnce: true,
 	});
 
-	const handleKeyDown = (event: {key: string}) => {
+	const handleKeyDown = (event: React.KeyboardEvent) => {
 		if (event.key === 'º') {
 			setIsModalOpen(true);
 		}
 	};
 
-	useEffect(() => {
-		void fetchServices(setServicios);
-	}, []);
+	const touchOpen = (event: React.TouchEvent) => {
+		if (event.touches.length === 3) {
+			setIsModalOpen(true);
+		}
+	};
 
 	return (
 		<div
 			id='services'
 			ref={ref}
 			onKeyDown={handleKeyDown}
+			onTouchStart={touchOpen}
 			tabIndex={0}
 			className={'font-montserrat flex-row flex-wrap  pt-28 justify-start'}
 		>
 			<h1 className='text-white text-6xl font-bold' style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}>
-				Servicios
+				services
 			</h1>
-			{servicios?.map((item, ind) => (
+			{services?.map((item, ind) => (
 				<div key={ind} className='my-4 p-4 flex-col rounded-[20px] '>
 					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
-						<ServicesForm ServiceInitialValues={servicios} setValues={setServicios} />
+						<ServicesForm ServiceInitialValues={services} />
 					</BasicModal>
 					{item.contenido.length > 0 && <h2 className='text-white text-2xl font-bold'>{item.categoria}</h2>}
 					{item.contenido.map((contenido, ind2) => (

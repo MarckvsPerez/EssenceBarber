@@ -3,32 +3,24 @@ import {Form, FormikProvider, useFormik} from 'formik';
 import {CustomButton} from '../Button';
 import {validationSchema} from './ScheduleFormSchema';
 import {doc, updateDoc} from 'firebase/firestore';
-import {db} from '../../firebase';
+import {db, downloadFileFromStorage} from '../../firebase';
 import {UploadFile} from '../UploadFile';
+import {useData} from '../../context/DataContext';
 
-export const ScheduleForm = ({
-	ScheduleInitialValues,
-	setValues,
-}: {
-	ScheduleInitialValues: {Info: string};
-	setValues: React.Dispatch<React.SetStateAction<{Info: string} | undefined>>;
-}) => {
+export const ScheduleForm = ({ScheduleInitialValues}: {ScheduleInitialValues: {Info: string}}) => {
 	const [msg, setMsg] = useState<string>('Enviar');
-
+	const {setSchedule, setUrl} = useData();
 	const onSubmit = async (values: {Info: string}): Promise<void> => {
-		console.log('hola');
 		try {
 			const docRef = doc(db, 'Horario', 'PELDdcyhR4hi6iy8qKrb');
 			await updateDoc(docRef, values);
-			setValues(values);
+			setSchedule(values);
 			setMsg('¡El formulario se envió con éxito!');
 		} catch (error) {
 			console.error(error);
 			setMsg('¡Hubo un problema al enviar el formulario!');
 		} finally {
-			setTimeout(() => {
-				setMsg('Enviar');
-			}, 2000);
+			setMsg('Enviar');
 		}
 	};
 
@@ -64,7 +56,7 @@ export const ScheduleForm = ({
 				</div>
 			</FormikProvider>
 
-			<UploadFile fileDir='FondoHorario' />
+			<UploadFile fileDir='FondoHorario' update={async () => downloadFileFromStorage(setUrl)} />
 		</div>
 	);
 };

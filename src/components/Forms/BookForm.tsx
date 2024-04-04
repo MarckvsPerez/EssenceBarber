@@ -5,29 +5,23 @@ import {validationSchema} from './BookFormSchema';
 import {type BookType} from '../../types';
 import {doc, updateDoc} from 'firebase/firestore';
 import {db} from '../../firebase';
+import {useData} from '../../context/DataContext';
 
-export const BookForm = ({
-	BookInitialValues,
-	setValues,
-}: {
-	BookInitialValues: BookType;
-	setValues: React.Dispatch<React.SetStateAction<BookType | undefined>>;
-}) => {
+export const BookForm = ({BookInitialValues}: {BookInitialValues: BookType}) => {
 	const [msg, setMsg] = useState<string>('Enviar');
+	const {setBook} = useData();
 
 	const onSubmit = async (values: BookType): Promise<void> => {
 		try {
 			const docRef = doc(db, 'Reservas', 'M3POu8FLx0KZr8m6Qnob');
 			await updateDoc(docRef, values);
-			setValues(values);
+			setBook(values);
 			setMsg('¡El formulario se envió con éxito!');
 		} catch (error) {
 			console.error(error);
 			setMsg('¡Hubo un problema al enviar el formulario!');
 		} finally {
-			setTimeout(() => {
-				setMsg('Enviar');
-			}, 2000);
+			setMsg('Enviar');
 		}
 	};
 

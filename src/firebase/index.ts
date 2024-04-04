@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getFirestore, doc, getDoc, collection, getDocs} from '@firebase/firestore';
-import {getStorage, getDownloadURL, type StorageReference, listAll, deleteObject} from 'firebase/storage';
+import {getStorage, getDownloadURL, type StorageReference, listAll, deleteObject, ref} from 'firebase/storage';
 
 import {type TitulosType, type CategoriaType, type BookType} from '../types';
 import {type Dispatch, type SetStateAction} from 'react';
@@ -37,7 +37,9 @@ export const fetchServices = async (set: Dispatch<SetStateAction<CategoriaType[]
 	} catch (error) {
 		console.error('Error fetching documents: ', error);
 	} finally {
-		set(response);
+		if (response.length >= 1) {
+			set(response);
+		}
 	}
 };
 
@@ -48,7 +50,7 @@ export const fetchTitles = async (set: Dispatch<SetStateAction<TitulosType | und
 	if (docSnap.exists()) {
 		set(docSnap.data() as TitulosType);
 	} else {
-		console.log('No such document!');
+		console.error('No titles document!');
 	}
 };
 
@@ -59,7 +61,7 @@ export const fetchSchedule = async (set: Dispatch<SetStateAction<{Info: string} 
 	if (docSnap.exists()) {
 		set(docSnap.data() as {Info: string});
 	} else {
-		console.log('No such document!');
+		console.error('No schedule document!');
 	}
 };
 
@@ -68,28 +70,30 @@ export const fetchBook = async (set: Dispatch<SetStateAction<BookType | undefine
 	const docSnap = await getDoc(docRef);
 
 	if (docSnap.exists()) {
-		console.log(docSnap.data());
 		set(docSnap.data() as BookType);
 	} else {
-		console.log('No such document!');
+		console.error('No book document!');
 	}
 };
 
-export const downloadFileFromStorage = async (starsRef: StorageReference): Promise<string> => {
-	return getDownloadURL(starsRef);
+export const downloadFileFromStorage = async (set: Dispatch<SetStateAction<string | undefined>>) => {
+	const starsRef = ref(storage, 'FondoHorario');
+	const response = getDownloadURL(starsRef);
+	set(await response);
 };
 
 export const deleteFileFromStorage = async (starsRef: StorageReference): Promise<void> => {
 	try {
 		await deleteObject(starsRef);
-		console.log('Archivo borrado exitosamente.');
 	} catch (error) {
 		console.error('Error al borrar el archivo:', error);
 		throw error;
 	}
 };
 
-export const downloadFilesFromStorage = async (folderRef: StorageReference): Promise<string[]> => {
+export const downloadFilesFromStorage = async (set: Dispatch<SetStateAction<string[] | undefined>>) => {
+	const folderRef = ref(storage, 'Galeria');
+
 	try {
 		const {items} = await listAll(folderRef);
 
@@ -101,7 +105,9 @@ export const downloadFilesFromStorage = async (folderRef: StorageReference): Pro
 			downloadUrls.push(downloadUrl);
 		}
 
-		return downloadUrls;
+		if (downloadUrls.length >= 1) {
+			set(downloadUrls);
+		}
 	} catch (error) {
 		console.error('Error al descargar archivos:', error);
 		throw error;

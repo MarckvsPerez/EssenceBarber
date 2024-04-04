@@ -30,9 +30,7 @@ export const Contact = () => {
 			formik.resetForm();
 			setMsg('¡Hubo un problema al enviar el formulario!');
 		} finally {
-			setTimeout(() => {
-				setMsg('Enviar');
-			}, 2000);
+			setMsg('Enviar');
 		}
 	};
 

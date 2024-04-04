@@ -3,27 +3,24 @@ import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import {getStorage, ref, deleteObject} from 'firebase/storage';
 import {UploadFile} from '../UploadFile';
+import {downloadFilesFromStorage} from '../../firebase';
+import {useData} from '../../context/DataContext';
 const storage = getStorage();
 
-export const CarouselForm = ({
-	images,
-	set,
-}: {
-	images: string[];
-	set: React.Dispatch<React.SetStateAction<string[] | undefined>>;
-}) => {
+export const CarouselForm = ({images}: {images: string[]}) => {
 	const theme = createTheme({
 		palette: {
 			mode: 'dark',
 		},
 	});
+	const {setGallery} = useData();
 
 	const handleDeleteRow = (img: string) => {
 		const fileRef = ref(storage, img);
 		void deleteObject(fileRef);
 
 		const updatedUrls = images.filter((url) => url !== img);
-		set(updatedUrls);
+		setGallery(updatedUrls);
 	};
 
 	const random = () => {
@@ -32,10 +29,6 @@ export const CarouselForm = ({
 		const randomDigits = randomString.substring(0, 8);
 
 		return randomDigits;
-	};
-
-	const update = () => {
-		console.log('hola');
 	};
 
 	return (
@@ -71,7 +64,7 @@ export const CarouselForm = ({
 				</Table>
 			</TableContainer>
 			<div className='p-4'>
-				<UploadFile fileDir={`Galeria/${random()}`} update={update} />
+				<UploadFile fileDir={`Galeria/${random()}`} update={async () => downloadFilesFromStorage(setGallery)} />
 			</div>
 		</ThemeProvider>
 	);

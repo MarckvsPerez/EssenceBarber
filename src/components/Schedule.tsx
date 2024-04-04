@@ -1,37 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from '../style';
 import {FaClock} from 'react-icons/fa';
 import SectionWrapper from '../hoc/SectionWrapper';
-import {downloadFileFromStorage, fetchSchedule, storage} from '../firebase';
 import BasicModal from './Modal';
 import {ScheduleForm} from './Forms/ScheduleForm';
-import {ref} from 'firebase/storage';
-
-const starsRef = ref(storage, 'FondoHorario');
+import {useData} from '../context/DataContext';
 
 const Schedule = () => {
-	const [schedule, setSchedule] = useState<{Info: string} | undefined>(undefined);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [url, setUrl] = useState<string | undefined>(undefined);
+	const {url, schedule} = useData();
 
-	const handleKeyDown = (event: {key: string}) => {
+	const handleKeyDown = (event: React.KeyboardEvent) => {
 		if (event.key === 'º') {
 			setIsModalOpen(true);
 		}
 	};
 
-	useEffect(() => {
-		void fetchSchedule(setSchedule);
-		const fetchImage = async () => {
-			const url = await downloadFileFromStorage(starsRef);
-			setUrl(url);
-		};
-
-		void fetchImage();
-	}, [schedule]);
+	const touchOpen = (event: React.TouchEvent) => {
+		if (event.touches.length === 3) {
+			setIsModalOpen(true);
+		}
+	};
 
 	return (
 		<div
+			onTouchStart={touchOpen}
 			onKeyDown={handleKeyDown}
 			tabIndex={0}
 			className='text-white w-full font-montserrat relative inline-block h-[400px]'
@@ -41,7 +34,7 @@ const Schedule = () => {
 			) : (
 				<>
 					<BasicModal open={isModalOpen} setOpen={setIsModalOpen}>
-						<ScheduleForm ScheduleInitialValues={schedule} setValues={setSchedule} />
+						<ScheduleForm ScheduleInitialValues={schedule} />
 					</BasicModal>
 					{url && <img src={url} className='h-full w-full object-cover' alt='' />}
 					<div className='w-full top-0 h-full absolute bg-black opacity-85'></div>
