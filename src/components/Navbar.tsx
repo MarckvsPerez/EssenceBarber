@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {LogoEssence, close, menu} from '../assets';
 import {navLinks} from '../constants';
-import {Button} from '@mui/material';
 
 export const Navbar = () => {
 	const [active, setActive] = useState('');

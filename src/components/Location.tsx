@@ -1,14 +1,13 @@
 import React from 'react';
 import MapComponent from './MapComponent';
 import {FaMapMarkerAlt, FaExternalLinkAlt} from 'react-icons/fa';
-import {motion} from 'framer-motion';
 import {CustomButton} from './Button';
 import {useInView} from 'react-intersection-observer';
 import {sprayTransparent} from '../assets';
 import SectionWrapper from '../hoc/SectionWrapper';
 
 const Location = () => {
-	const {ref, inView} = useInView({
+	const {ref} = useInView({
 		threshold: 0.1,
 		triggerOnce: true,
 	});
