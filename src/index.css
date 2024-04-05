@@ -11,6 +11,8 @@
 
 * {
 	scroll-behavior: smooth;
+	color-scheme: dark;
+	font-family: 'Montserrat';
 }
 
 .text-gradient {

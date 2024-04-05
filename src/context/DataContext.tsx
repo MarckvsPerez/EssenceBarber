@@ -1,4 +1,12 @@
-import React, {type ReactNode, createContext, useState, useEffect, useContext, useRef} from 'react';
+import React, {
+	type ReactNode,
+	createContext,
+	useState,
+	useEffect,
+	useContext,
+	useRef,
+	type MutableRefObject,
+} from 'react';
 import {type TitulosType, type CategoriaType, type BookType} from '../types';
 import {
 	downloadFileFromStorage,
@@ -17,6 +25,7 @@ type DataContextType = {
 	schedule: {Info: string};
 	url: string;
 	gallery: string[];
+	loading: MutableRefObject<boolean>;
 	setServices: React.Dispatch<React.SetStateAction<CategoriaType[] | undefined>>;
 	setTitles: React.Dispatch<React.SetStateAction<TitulosType | undefined>>;
 	setBook: React.Dispatch<React.SetStateAction<BookType | undefined>>;
@@ -70,6 +79,7 @@ export const DataProvider: React.FC<{children?: ReactNode}> = ({children}) => {
 					schedule,
 					gallery,
 					url,
+					loading,
 					setServices,
 					setTitles,
 					setBook,

@@ -5,14 +5,14 @@ import facebook from './facebook.svg';
 import instagram from './instagram.svg';
 import linkedin from './linkedin.svg';
 import twitter from './twitter.svg';
-import LogoEssence from './LogoEssence.jpg';
-import Wall from './Wall.jpeg';
-import sprayTransparent from './sprayTransparent.png';
-import STMNT from './STMNT.png';
-import BBL from './BBL.png';
-import WAHL from './WAHL.png';
-import JRL from './JRL.png';
-import Cera from './Cera.png';
+import LogoEssence from './LogoEssence.webp';
+import Wall from './Wall.webp';
+import sprayTransparent from './sprayTransparent.webp';
+import STMNT from './STMNT.webp';
+import BBL from './BBL.webp';
+import WAHL from './WAHL.webp';
+import JRL from './JRL.webp';
+import Cera from './Cera.webp';
 
 export {
 	Cera,

@@ -34,15 +34,9 @@ const Location = () => {
 				</div>
 				<div ref={ref} className='sm:col-span-3 sm:pr-16 px-6'>
 					<div className='text-center mb-6'>
-						<motion.div
-							initial={{y: -500, scale: 1, opacity: 0}}
-							animate={inView ? {y: 0, scale: 1.2, opacity: 1} : {}}
-							transition={{
-								duration: 0.5,
-							}}
-						>
+						<div>
 							<FaMapMarkerAlt className='w-full text-white text-center text-[32px] mb-4' />
-						</motion.div>
+						</div>
 						<p className='mb-8'>Carrer de l&apos;Abat Armengol, 22, 08173 Sant Cugat del Vallès, Barcelona</p>
 						<CustomButton handleClick={redirect}>
 							<div className='flex'>

@@ -4,21 +4,28 @@ import {navLinks} from '../constants';
 import {Button} from '@mui/material';
 
 export const Navbar = () => {
+	const [active, setActive] = useState('');
 	const [toggle, setToggle] = useState(false);
+
 	return (
 		<nav className='w-full flex py-6 justify-between items-center navbar'>
 			<img src={LogoEssence} alt='Essence' className='h-[50px] w-[320px] object-cover rounded-lg' />
 
 			<ul className='list-none sm:flex hidden justify-end items-center flex-1'>
-				{navLinks.map((nav, index) => (
+				{navLinks.map((nav) => (
 					<li
 						key={nav.id}
-						className={`font-montserrat font-normal cursor-pointer text-[16px] ${index === navLinks.length - 1 ? 'mr-0' : 'mr-4'} text-white '
-						`}
+						onClick={() => {
+							setActive(nav.id);
+						}}
 					>
-						<Button color='inherit' href={`#${nav.id}`} className='w-full text-white'>
-							{nav.title}
-						</Button>
+						<div
+							className={`${
+								active === nav.id ? 'text-white' : 'text-gray-400'
+							} hover:text-white text-[18px] font-medium cursor-pointer mx-2`}
+						>
+							<a href={`#${nav.id}`}>{nav.title}</a>
+						</div>
 					</li>
 				))}
 			</ul>
@@ -36,15 +43,20 @@ export const Navbar = () => {
 					className={`${toggle ? 'flex' : 'hidden'} p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
 				>
 					<ul className='list-none flex flex-col justify-end items-center flex-1'>
-						{navLinks.map((nav, index) => (
+						{navLinks.map((nav) => (
 							<li
 								key={nav.id}
-								className={`font-montserrat font-normal cursor-pointer text-[16px] w-full ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'} text-white '
-						`}
+								onClick={() => {
+									setActive(nav.id);
+								}}
 							>
-								<Button color='inherit' href={`#${nav.id}`} className='w-full text-white'>
-									{nav.title}
-								</Button>
+								<div
+									className={`${
+										active === nav.id ? 'text-white' : 'text-gray-400'
+									} hover:text-white text-[18px] font-medium cursor-pointer mt-2`}
+								>
+									<a href={`#${nav.id}`}>{nav.title}</a>
+								</div>
 							</li>
 						))}
 					</ul>
