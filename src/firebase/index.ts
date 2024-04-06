@@ -38,7 +38,16 @@ export const fetchServices = async (set: Dispatch<SetStateAction<CategoriaType[]
 		console.error('Error fetching documents: ', error);
 	} finally {
 		if (response.length >= 1) {
-			set(response);
+			const cabello = response.find((servicio) => servicio.categoria === 'Cabello');
+			const barba = response.find((servicio) => servicio.categoria === 'Barba');
+			const packs = response.find((servicio) => servicio.categoria === 'Packs');
+
+			const serviciosOrdenados = [];
+			if (cabello) serviciosOrdenados.push(cabello);
+			if (barba) serviciosOrdenados.push(barba);
+			if (packs) serviciosOrdenados.push(packs);
+
+			set(serviciosOrdenados);
 		}
 	}
 };

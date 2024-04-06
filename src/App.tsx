@@ -15,7 +15,7 @@ export const App = () => {
 				</div>
 				<div className={`bg-primary mt-10 ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
-						/<Hero />
+						<Hero />
 					</div>
 				</div>
 

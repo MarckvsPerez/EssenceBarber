@@ -26,7 +26,6 @@ export function Carousel() {
 
 	return (
 		<div onTouchStart={touchOpen} onKeyDown={handleKeyDown} tabIndex={0} className='mt-8 h-[450px]'>
-			<h2>Galeria</h2>
 			{gallery === undefined ? (
 				<CircularProgress />
 			) : (

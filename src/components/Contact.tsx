@@ -53,7 +53,7 @@ export const Contact = () => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 							placeholder={'Nombre'}
-							className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
+							className='border-none bg-white outline-none py-4 px-6 rounded-lg font-medium'
 						/>
 						{formik.touched.name && formik.errors.name && <div className='text-red-500'>{formik.errors.name}</div>}
 					</label>
@@ -66,7 +66,7 @@ export const Contact = () => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 							placeholder={'Correo'}
-							className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
+							className='border-none bg-white outline-none py-4 px-6 rounded-lg font-medium'
 						/>
 						{formik.touched.email && formik.errors.email && <div className='text-red-500'>{formik.errors.email}</div>}
 					</label>
@@ -79,7 +79,7 @@ export const Contact = () => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 							placeholder={'Mensaje'}
-							className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
+							className='border-none bg-white outline-none py-4 px-6 rounded-lg font-medium'
 						/>
 						{formik.touched.message && formik.errors.message && (
 							<div className='text-red-500'>{formik.errors.message}</div>
