@@ -33,7 +33,7 @@ export const Navbar = () => {
 				<img
 					src={toggle ? close : menu}
 					alt='menu'
-					className='w-[28px] h-[28px] object-contain cursor-pointer'
+					className='min-w-[28px] w-[28px] h-[28px] object-contain cursor-pointer'
 					onClick={() => {
 						setToggle((prev) => !prev);
 					}}
