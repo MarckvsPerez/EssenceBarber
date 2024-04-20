@@ -37,7 +37,7 @@ const Schedule = () => {
 						<ScheduleForm ScheduleInitialValues={schedule} />
 					</BasicModal>
 					{url && <img src={url} className='h-full w-full object-cover' alt='' />}
-					<div className='w-full top-0 h-full absolute bg-black opacity-85'></div>
+					<div className='w-full top-0 h-full absolute bg-black opacity-65'></div>
 					<div
 						className={`${styles.paddingX} absolute top-0 flex flex-col justify-center items-center z-2 w-full h-full`}
 					>

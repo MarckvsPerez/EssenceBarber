@@ -7,25 +7,25 @@ import {Carousel} from './components/Carousel';
 export const App = () => {
 	return (
 		<BrowserRouter>
-			<div className='bg-primary w-full  overflow-hidden'>
-				<div className={`shadow-lg fixed w-full bg-primary z-10 ${styles.paddingX} ${styles.flexCenter}`}>
+			<div className='bg-primary-o w-full overflow-hidden'>
+				<div className={`bg-primary shadow-lg fixed w-full z-10 ${styles.paddingX} ${styles.flexCenter}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Navbar />
 					</div>
 				</div>
-				<div className={`bg-primary mt-10 ${styles.flexStart}`}>
+				<div className={`mt-10 ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Hero />
 					</div>
 				</div>
 
-				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
+				<div className={`${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Services />
 					</div>
 				</div>
 
-				<div className={`bg-primary mt-10 ${styles.flexStart}`}>
+				<div className={`mt-10 ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
 						<Schedule />
 						<Location />
@@ -33,7 +33,7 @@ export const App = () => {
 					</div>
 				</div>
 
-				<div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
+				<div className={`${styles.paddingX} ${styles.flexStart}`}>
 					<div className={`${styles.boxWidth}`}>
 						<CtaComponent />
 						<Client />
