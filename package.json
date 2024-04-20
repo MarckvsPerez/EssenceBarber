@@ -17,6 +17,7 @@
 		"@googlemaps/react-wrapper": "^1.1.35",
 		"@mui/material": "^5.15.14",
 		"@react-google-maps/api": "^2.19.3",
+		"@tinymce/tinymce-react": "^5.0.1",
 		"@types/googlemaps": "^3.43.3",
 		"@vis.gl/react-google-maps": "^0.8.1",
 		"axios": "^1.6.8",

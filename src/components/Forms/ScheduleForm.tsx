@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {Form, FormikProvider, useFormik} from 'formik';
+import {Editor} from '@tinymce/tinymce-react';
+
 import {CustomButton} from '../Button';
 import {validationSchema} from './ScheduleFormSchema';
 import {doc, updateDoc} from 'firebase/firestore';
@@ -30,21 +32,49 @@ export const ScheduleForm = ({ScheduleInitialValues}: {ScheduleInitialValues: {I
 		onSubmit,
 	});
 
+	const handleEditorChange = (newContent: string) => {
+		void formik.setFieldValue('Info', newContent);
+	};
+
 	return (
-		<div>
+		<div className='w-full'>
 			<FormikProvider value={formik}>
 				<div className='w-full'>
 					<Form onSubmit={formik.handleSubmit}>
 						<label className='flex flex-col mb-4'>
 							<span className='text-white font-medium mb-4'>Horario</span>
-							<input
-								type='text'
-								name='Info'
-								value={formik.values.Info}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
-								placeholder={'Info'}
-								className='border-none outline-none py-4 px-6 placeholder:text-gray-600 rounded-lg font-medium'
+							<Editor
+								apiKey='kqouulohyugx37iuagjwuixko0dug6ht4ktgzuryyaatthcv'
+								initialValue={ScheduleInitialValues.Info}
+								init={{
+									height: '500px',
+									menubar: true,
+									plugins: [
+										'advlist',
+										'autolink',
+										'lists',
+										'link',
+										'image',
+										'charmap',
+										'preview',
+										'anchor',
+										'searchreplace',
+										'visualblocks',
+										'code',
+										'fullscreen',
+										'insertdatetime',
+										'media',
+										'table',
+										'help',
+										'wordcount',
+									],
+									toolbar:
+										'undo redo | blocks | ' +
+										'bold italic backcolor | alignleft aligncenter ' +
+										'alignright alignjustify | bullist numlist outdent indent | ' +
+										'removeformat | help',
+								}}
+								onEditorChange={handleEditorChange}
 							/>
 							{formik.touched.Info && formik.errors.Info && <div className='text-red-500'>{formik.errors.Info}</div>}
 						</label>

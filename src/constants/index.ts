@@ -68,7 +68,7 @@ export const clients = [
 export const contact = [
 	{
 		id: 'Teléfono',
-		value: '+34 666 666 666',
+		value: '+34 695 813 469',
 	},
 	{
 		id: 'Email',

@@ -43,11 +43,10 @@ const Schedule = () => {
 					>
 						<FaClock className='w-full text-white text-center text-[48px] my-2' />
 						<div
-							className='text-white text-4xl text-center font-bold'
+							className='text-white text-4xl'
 							style={{textShadow: 'rgba(255,255,255,0.65) 0px 0px 13px'}}
-						>
-							{schedule.Info}
-						</div>
+							dangerouslySetInnerHTML={{__html: schedule.Info}}
+						></div>
 					</div>
 				</>
 			)}
